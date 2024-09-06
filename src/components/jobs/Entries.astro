@@ -1,0 +1,20 @@
+---
+const { page, url } = Astro.props;
+---
+
+<li
+  class="flex flex-col lg:flex-row lg:items-center justify-between border-2 h-full bg-yellow-500 rounded-2xl shadow-large gap-12 border-black p-8">
+  <div class="flex-col flex">
+    <p class="text-3xl lg:text-6xl mt-4">{page}</p>
+  </div>
+  <div>
+    <a
+      class="text-black items-center shadow shadow-black text-lg font-semibold inline-flex px-6 focus:outline-none justify-center text-center bg-white border-black ease-in-out transform transition-all focus:ring-lila-700 focus:shadow-none border-2 duration-100 focus:bg-black focus:text-white sm:w-auto py-3 rounded-lg h-16 tracking-wide focus:translate-y-1 w-full hover:text-lila-800"
+      href={url}
+      title={page}
+      >
+      Read more
+    </a>
+  </div>
+</li>
+

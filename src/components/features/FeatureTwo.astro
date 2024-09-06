@@ -1,0 +1,53 @@
+---
+// Define the content for each feature in an array
+const features = [
+  {
+    title: "Secure Wallets",
+    description:
+      "Rest easy knowing your crypto assets are protected by state-of-the-art security measures and encryption, ensuring your safety.",
+  },
+  {
+    title: "Instant Transactions",
+    description:
+      "Experience the convenience of near-instantaneous cryptocurrency transfers, allowing you to send and receive digital assets in real-time, eliminating delays.",
+  },
+  {
+    title: "Multi-Currency Support",
+    description:
+      "Access a diverse range of cryptocurrencies in one unified platform, enabling you to explore and manage various digital assets effortlessly.",
+  },
+];
+---
+
+<section>
+  <div
+    class="relative items-center w-full mx-auto 2xl:max-w-7xl 2xl:border-x-2 border-b-2 border-black">
+    <div class="relative p-8 lg:p-20 items-center gap-12 h-full bg-yellow-500">
+      <div class="text-center max-w-4xl mx-auto">
+        <p class="text-4xl lg:text-5xl font-medium text-black">
+          Navigating the digital financial frontier
+        </p>
+      </div>
+      <div class="relative items-center w-full mx-auto mt-12">
+        <img
+          class="object-cover w-full lg:rounded-full h-96 border-2 border-black object-top bg-white"
+          src="/images/collab.svg"
+          alt="your alt-text"
+        />
+      </div>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:text-center lg:grid-cols-3 gap-6 lg:gap-12 mt-12">
+        {
+          features.map((feature) => (
+            <div>
+              <h2 class="text-3xl text-black font-medium">{feature.title}</h2>
+              <p class="text-lg tracking-wide text-black mt-4">
+                {feature.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

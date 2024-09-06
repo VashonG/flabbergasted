@@ -1,0 +1,27 @@
+---
+const { name, role, avatar, url } = Astro.props;
+---
+
+<a
+  href={url}
+  title={name}
+  aria-label={name}>
+  <div
+    class="flex flex-col h-full justify-between divide-black bg-white divide-y-2">
+    <div class="block w-full items-center h-full">
+      <img
+        class="object-cover aspect-[4/4]"
+        src={avatar}
+        alt={name}
+      />
+    </div>
+    <div
+      class="relative p-8 lg:px-20 items-center gap-12 h-full lg:inline-flex bg-green-400">
+      <div class="max-w-xl text-center mx-auto">
+        <h3 class="text-xl font-semibold text-black">{name}</h3>
+        <p class="text-base l text-black mt-4">{role}</p>
+      </div>
+    </div>
+  </div>
+
+</a>

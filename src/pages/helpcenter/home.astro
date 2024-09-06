@@ -1,0 +1,83 @@
+---
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("helpcenter");
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Entries from "@/components/helpcenter/Entries.astro";
+---
+
+<BaseLayout>
+  <section>
+    <div
+      class="items-center w-full mx-auto 2xl:max-w-7xl 2xl:border-x-2 border-black">
+      <div
+        class="p-8 lg:p-20 lg:py-32 items-center gap-12 h-full bg-white border-b-2 border-black">
+        <div class="text-center max-w-4xl mx-auto">
+          <p class="text-5xl lg:text-7xl text-black">Help Center</p>
+
+          <p
+            class="max-w-xl mt-4 xl:text-2xl mx-auto tracking-tight text-black">
+            Track website traffic, user behavior, and conversion rates with our
+            easy-to-use Dashboard
+          </p>
+
+          <div class="justify-center mt-12 w-full max-w-xl mx-auto">
+            <label
+              for="search"
+              class="sr-only"
+              >Search</label
+            >
+            <div class="relative text-black focus-within:text-lila-800">
+              <div
+                class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                <svg
+                  class="h-6 w-6"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true">
+                  <path
+                    fill-rule="evenodd"
+                    d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+
+              <input
+                id="search"
+                class="block w-full px-4 py-2 mt-4 border-2 bg-white border-black h-16 shadow shadow-black rounded-lg appearance-none text-black placeholder-black focus:border-lila-800 focus:outline-none focus:ring-lila-800 focus:shadow-lila-800 sm:text-sm pl-10"
+                placeholder="Search"
+                type="search"
+                name="search"
+                role="search"
+                aria-labelledby="search-label"
+              />
+            </div>
+            <!-- Add an accessible label for the search input -->
+            <p
+              id="search-label"
+              class="sr-only">
+              Search Input
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="items-center w-full mx-auto 2xl:max-w-7xl p-8 bg-yellow-500 lg:p-20 2xl:border-x-2 border-black">
+      <div class="flex flex-col gap-12">
+        {
+          allPosts.slice().map((post) => (
+            <Entries
+              url={"/helpcenter/" + post.slug}
+              page={post.data.page}
+              description={post.data.description}
+              alt={post.data.page}
+            
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

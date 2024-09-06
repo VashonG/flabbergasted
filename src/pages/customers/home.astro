@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("customers");
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Entries from "@/components/customers/Entries.astro";
+---
+
+<BaseLayout>
+  <section class="relative items-center w-full">
+    <div
+      class="relative items-center w-full  mx-auto 2xl:max-w-7xl border-b-2 border-black 2xl:border-x-2">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-0.5 bg-black divide-y-2 divide-black md:divide-y-0 ">
+        {
+          allPosts.slice().map((post) => (
+            <Entries
+              url={"/customers/" + post.slug}
+              customer={post.data.customer}
+              feedback={post.data.feedback}
+              alt={post.data.customer}
+              logo={post.data.logo.url}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

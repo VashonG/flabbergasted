@@ -1,0 +1,40 @@
+---
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("store");
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Entries from "../../components/store/Entries.astro";
+---
+
+<BaseLayout>
+  <section class="bg-white">
+    <div
+      class="relative items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20 lg:py-32 2xl:border-x-2 border-b-2 border-black bg-lila-500">
+      <div class="max-w-xl mx-auto text-center">
+        <h1
+          class="text-3xl lg:text-5xl font-medium text-black max-w-4xl mx-auto">
+          Welcome to Flabbergasted's Store
+        </h1>
+        <p class="max-w-lg mt-4 xl:text-xl tracking-wide text-black mx-auto">
+          Look around and see if you like something that you like.
+        </p>
+      </div>
+    </div>
+    <div class="2xl:max-w-7xl p-8 lg:p-20 2xl:border-x-2 mx-auto border-black">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 lg:gap-12">
+        {
+          allPosts.slice().map((post) => (
+            <Entries
+              url={"/store/" + post.slug}
+              title={post.data.title}
+              price={post.data.price}
+              description={post.data.description}
+              alt={post.data.title}
+              image={post.data.image.url}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>

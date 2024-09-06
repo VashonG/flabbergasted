@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("jobs");
+import Entries from "@/components/jobs/Entries.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <section class="2xl:max-w-7xl mx-auto">
+    <div
+      class="relative items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20 lg:py-32 2xl:px-0 2xl:border-x-2 border-b-2 border-black bg-lila-500">
+      <div class="max-w-xl mx-auto text-center">
+        <h1
+          class="text-3xl lg:text-5xl font-medium text-black max-w-4xl mx-auto">
+          Help us bring software magic back
+        </h1>
+      </div>
+    </div>
+
+    <ul class="flex flex-col gap-12 p-8 lg:p-20 2xl:border-x-2 border-black">
+      {
+        allPosts.slice().map((post) => (
+          <Entries
+            url={"/jobs/" + post.slug}
+            page={post.data.page}
+            alt={post.data.page}
+          />
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

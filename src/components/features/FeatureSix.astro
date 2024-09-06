@@ -1,0 +1,79 @@
+---
+// Define the services array
+const services = [
+  {
+    bgColor: "bg-lila-500",
+    imgSrc: "/images/blob1.svg",
+    title: "Decentralized Exchanges",
+    description:
+      "Embrace peer-to-peer trading without intermediaries. Trade directly with other users on our platform, enjoying the benefits of decentralization.",
+  },
+  {
+    bgColor: "bg-green-500",
+    imgSrc: "/images/blob2.svg",
+    title: "Staking Rewards",
+    description:
+      "Put your crypto assets to work and earn passive income through staking, a feature that allows you to participate in network validation and reap rewards.",
+  },
+  {
+    bgColor: "bg-yellow-500",
+    imgSrc: "/images/blob3.svg",
+    title: "NFT Marketplace",
+    description:
+      "Immerse yourself in the world of non-fungible tokens (NFTs) with our marketplace. Buy, sell, and even create unique digital collectibles.",
+  },
+  {
+    bgColor: "bg-red-500",
+    imgSrc: "/images/blob4.svg",
+    title: "Instant Transactions",
+    description:
+      "Experience the convenience of near-instantaneous cryptocurrency transfers, allowing you to send and receive digital assets.",
+  },
+  {
+    bgColor: "bg-lila-500",
+    imgSrc: "/images/blob5.svg",
+    title: "Crypto Education",
+    description:
+      "Access a wealth of educational resources to expand your knowledge of blockchain technology.",
+  },
+  {
+    bgColor: "bg-green-500",
+    imgSrc: "/images/blob6.svg",
+    title: "Mobile App",
+    description:
+      "Seamlessly trade and manage your crypto assets on the go with our mobile application, offering all the features and convenience you expect.",
+  },
+];
+---
+
+<section>
+  <div
+    class="items-center w-full mx-auto 2xl:max-w-7xl p-8 lg:p-20 2xl:px-0 border-b-2 border-black 2xl:border-x-2 bg-red-500">
+    <div
+      class="relative p-8 lg:px20 2xl:px-0 items-center text-center justify-center max-w-3xl mx-auto">
+      <h2 class="text-3xl lg:text-5xl tracking-tight font-medium">
+        Your window into <span class="md:block">the crypto world</span>
+      </h2>
+      <p class="max-w-md mt-4 xl:text-xl text-lg mx-auto">
+        Exploring the boundless horizons of digital currency
+      </p>
+    </div>
+  </div>
+  <div
+    class="grid grid-cols-1 lg:p-20 p-8 md:grid-cols-2 2xl:max-w-7xl border-b-2 mx-auto 2xl:border-x-2 border-black text-black xl:grid-cols-3 gap-4">
+    {
+      services.map((service) => (
+        <div
+          class={`border-2 border-black shadow-large p-8 rounded-3xl ${service.bgColor}`}>
+          <img
+            class="size-20 "
+            src={service.imgSrc}
+            alt="your alt-text"
+          />
+          <h2 class="text-xl font-medium mt-12">{service.title}</h2>
+          <p class="text-lg tracking-wide mt-4">{service.description}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>

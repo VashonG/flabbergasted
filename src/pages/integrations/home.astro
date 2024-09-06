@@ -1,0 +1,39 @@
+---
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("integrations");
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Entries from "@/components/integrations/Entries.astro";
+---
+
+<BaseLayout>
+  <section>
+    <div
+      class="p-8 lg:p-20 border-b-2 border-black 2xl:max-w-7xl mx-auto 2xl:border-x-2">
+      <p class="text-5xl lg:text-7xl text-black">
+        How to unlock your trading limit
+      </p>
+      <p class="mt-4 xl:text-xl tracking-wide text-black text-balance">
+        Flabbergasted connects securely with popular billing managers, banking
+        partners, and accounting platforms so you can seamlessly manage your
+        account and get access to non-dilutive capital.
+      </p>
+    </div>
+    <dl
+      class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-2 p-8 lg:p-20 2xl:max-w-7xl mx-auto border-black 2xl:border-x-2">
+      {
+        allPosts.slice().map((post) => (
+          <Entries
+            url={"/integrations/" + post.slug}
+            integration={post.data.integration}
+            description={post.data.description}
+            alt={post.data.integration}
+            permissions={post.data.permissions}
+            logo={post.data.logo.url}
+          />
+        ))
+      }
+    </dl>
+  </section>
+
+
+</BaseLayout>

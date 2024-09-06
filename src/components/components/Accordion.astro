@@ -1,0 +1,130 @@
+---
+const faqs = [
+  {
+    question: "How does end-to-end encryption work?",
+    answer:
+      "End-to-end encryption ensures that only the sender and recipient can access the content of a message. The information is encrypted on the sender's device and can only be decrypted by the intended recipient, preventing any intermediaries, including the platform provider, from accessing the data.",
+  },
+  {
+    question: "Can I access my encrypted data if I forget my encryption key?",
+    answer:
+      "No, forgetting or losing your encryption key means that your encrypted data cannot be accessed. This is a crucial security measure to ensure that even if someone gains unauthorized access to your account, they won't be able to decrypt and view your messages or files.",
+  },
+  {
+    question:
+      "Are there any limitations to the self-destructing messages feature?",
+    answer:
+      "Self-destructing messages are designed to automatically delete themselves after a specific period or upon being read by the recipient. However, it's important to note that the feature only removes the message from the devices involved in the conversation. Recipients may take screenshots or use other means to capture the content, which is beyond the platform's control.",
+  },
+  {
+    question:
+      "What happens if I enable two-factor authentication and lose my device?",
+    answer:
+      "Losing your device doesn't automatically compromise your account's security. It's recommended to contact our support team as soon as possible to disable the two-factor authentication on your lost device and set up the authentication on your new device. This process will help protect your account from unauthorized access while ensuring you can regain access to it.",
+  },
+  {
+    question: "Is my personal information shared or sold to third parties?",
+    answer:
+      "No, we strictly adhere to a privacy-centric approach. Your personal information is never shared, sold, or monetized. We prioritize your privacy and ensure that your data remains confidential and only accessible to you.",
+  },
+  {
+    question: "Can I use this platform on multiple devices?",
+    answer:
+      "Yes, you can access our platform on multiple devices. Your encrypted data remains synced across all devices, allowing you to seamlessly communicate and access your files and messages from anywhere.",
+  },
+  {
+    question: "Are there any storage limitations for files and documents?",
+    answer:
+      "Our platform provides ample storage space for your files and documents. However, there may be storage limitations based on the pricing plan you choose. We offer flexible plans to suit your needs and provide options to upgrade if you require additional storage capacity.",
+  },
+  {
+    question: "Is it possible to export my data from the platform?",
+    answer:
+      "Yes, you can export your data from the platform. We offer export features that allow you to download your messages, files, and documents, ensuring you have a local copy for backup or migration purposes. It provides you with greater control and flexibility over your data.",
+  },
+];
+---
+
+<section>
+  <div class="relative items-center w-full mx-auto 2xl:max-w-7xl">
+    <div class="divide-y-2 divide-black">
+      <div class="justify-center max-w-3xl p-8 lg:p-20">
+        <p class="text-5xl lg:text-7xl text-black">Accordion</p>
+      </div>
+      <div class="divide-y-2 divide-black">
+        <div class="p-8 lg:p-20">
+          <h3 class="text-xl font-medium leading-6 text-black">Details</h3>
+          <div class="space-y-6 mt-12">
+            {
+              faqs.map((faq) => (
+                <>
+                  <details class="p-8 border-2 border-black shadow bg-white rounded-2xl">
+                    <summary class="text-2xl tracking-wide text-black focus:text-violet-500 items-center justify-between">
+                      {faq.question}
+                    </summary>
+                    <p class="xl:text-2xl tracking-wide text-black pt-6">
+                      {faq.answer}
+                    </p>
+                  </details>
+                </>
+              ))
+            }
+          </div>
+        </div>
+        <div class="p-8 lg:p-20">
+          <h3 class="text-xl font-medium leading-6 text-black">Simple</h3>
+          <div
+            class="relative w-full mx-auto lg:col-span-2 text-xl font-medium divide-y-2 divide-black">
+            {
+              faqs.map((faq) => (
+                <details class="w-full py-8 text-left select-none">
+                  <summary class="flex group items-center cursor-pointer justify-between w-full   text-left select-none text-black hover:text-lila-900 font-display hover:text-accent-500">
+                    {faq.question}
+                    <div class="size-8 border-2 border-black inline-flex duration-300 ease-out items-center justify-center rounded-full shadow-tiny shadow-black group-hover:bg-lila-500 group-hover:text-black group-open:-rotate-45">
+                      <svg
+                        class="size-5 text-accent-500"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M12 6v12m6-6H6"
+                        />
+                      </svg>
+                    </div>
+                  </summary>
+                  <div class="py-8 text-slate-600 font-sans text-lg max-w-3xl font-normal">
+                    {faq.answer}
+                  </div>
+                </details>
+              ))
+            }
+          </div>
+        </div>
+        <div class="p-8 lg:p-20">
+          <h3 class="text-xl font-medium leading-6 text-black">Boxed</h3>
+          <div
+            class="border-2 border-black shadow mt-12 bg-white rounded-2xl divide-y-2 divide-black">
+            {
+              faqs.map((faq) => (
+                <>
+                  <details class="p-8">
+                    <summary class="text-2xl tracking-wide text-black focus:text-violet-500 items-center justify-between">
+                      {faq.question}
+                    </summary>
+                    <p class="xl:text-2xl tracking-wide text-black pt-6">
+                      {faq.answer}
+                    </p>
+                  </details>
+                </>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
